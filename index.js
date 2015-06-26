@@ -1,26 +1,31 @@
 'use strict'
 
 var BaseElement = require('base-element')
+var inherits = require('inherits')
 var extend = require('xtend')
+var omit = require('object-omit')
 
 module.exports = TwitterLink
 
 function TwitterLink (el) {
+  if (!(this instanceof TwitterLink)) return new TwitterLink(el)
   BaseElement.call(this, el)
 }
-TwitterLink.prototype = Object.create(BaseElement.prototype)
-TwitterLink.prototype.render = function (options) {
-  if (typeof options === 'string') {
-    options = {username: options}
+
+inherits(TwitterLink, BaseElement)
+
+TwitterLink.prototype.render = function (state) {
+  if (typeof state === 'string') {
+    state = {username: state}
   }
-  return this.afterRender(this.html('a', props(options), '@' + options.username))
+  return this.afterRender(this.html('a', properties(state), '@' + state.username))
 }
 
-function props (options) {
-  var username = options.username
+function properties (state) {
+  var username = state.username
   return extend({
     title: 'Follow me on Twitter @' + username,
     href: 'https://twitter.com/' + username,
     rel: 'me'
-  }, options)
+  }, omit(state, 'username'))
 }
