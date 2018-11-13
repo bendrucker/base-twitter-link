@@ -1,4 +1,4 @@
-# base-twitter-link [![Build Status](https://travis-ci.org/bendrucker/base-twitter-link.svg?branch=master)](https://travis-ci.org/bendrucker/base-twitter-link)
+# base-twitter-link [![Build Status](https://travis-ci.org/bendrucker/base-twitter-link.svg?branch=master)](https://travis-ci.org/bendrucker/base-twitter-link) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/base-twitter-link.svg)](https://greenkeeper.io/)
 
 > A basic link to your Twitter built with [base-element](https://github.com/shama/base-element)
 
